@@ -6,6 +6,8 @@ To start the backend server for trial, go into backend directory in terminal and
 `node index.js`. This server currently listens on port 3001.
 
 To start the frontend server, go into frontend directory terminal `frontend/connect4` and type following command `npm run start`. This server is currently on port 3000.
+
+To start both at the same time, type `npm run dev` into the command line.
 ## Features 
 - Local mode where you can play on the same computer with another person by taking turns 
 - Computer mode where you play against the computer(*Minimax Algorithm*)
