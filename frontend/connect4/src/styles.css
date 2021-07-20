@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    border:0;
+    outline: none;
+    background-color: transparent;
+
+}
+.app{
+    width:100vw;
+    height:100vh;
+    background-color: #a2b6be;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(#a7a0a078, #a2b6be);
+    color:rgb(0, 0, 0);
+    padding: 1%;
+    width:100%;
+    font-size: larger;
+}
+ion-icon{
+    font-size: 2vw;
+    margin-right: 2vw;
+}
+ion-icon:hover {
+    color:white;
+}
+.navbar-option {
+    margin-right: 2vw;
+    color:rgb(0, 0, 0);
+}
+.navbar-info {
+    margin-left: 2vw;
+    color:rgb(3, 238, 3);
+    font-weight: bold;
+}
+.navbar-option:hover{
+    color:rgb(143, 26, 173);
+}
+.current-play-mode{
+    color:rgb(116, 26, 26);
+}
+.current-play-mode:hover{
+    color:rgb(116, 26, 26);
+}
+
+.page{
+    width:100vw;
+    height:85vh;
+    background-color: #a2b6be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board{
+    animation: fadeIn 500ms ease-in-out;
+    z-index: 0;
+    width:calc(0.7*70vw);
+    height: calc(0.7*60vw);
+    display: grid;
+    grid-template-columns: calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw);
+    background-color: #3131db;
+    box-shadow: 0px 1px 9px -1px #000000;
+    border-radius: 2%;
+}
+@keyframes fadeIn {
+    from{ 
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+.emptyColumn{
+    white-space:nowrap;
+    display: grid;
+    grid-template-rows: calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw) calc(0.7*10vw);
+}
+.emptyColumn:hover{
+    background-color: #2525a8;
+    border-radius: 10%;
+}
+.emptySpaces{
+    transition: 500ms background;
+    z-index: 1;
+    margin-top:calc(0.025*10vw);
+    margin-left:calc(0.025*10vw);
+    width:calc(0.65*10vw);
+    height:calc(0.65*10vw);
+    border-radius: 50%;
+}
+
+.celebration-page{
+    width:100vw;
+    height:95vh;
+    background-color: #a2b6be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.celebration-slide{
+    text-align: center;
+    font-size: 5vh;
+    width: 50vw;
+    height: 20vh;
+    padding: 5vh;
+    box-shadow: 0px 1px 11px -1px #000000;
+    animation: fadeIn 1s ease-in-out;
+}

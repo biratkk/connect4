@@ -1,0 +1,16 @@
+.piece{
+    transition: 1s cubic-bezier(0.77, 0, 0.175, 1);
+    width:calc(0.65*10vw);
+    height:calc(0.65*10vw);
+    border-radius: 50%;
+    color: #000;
+}
+
+@keyframes drop {
+    from{
+        margin-top: -400%;
+    }
+    to{
+        margin-top: 0;
+    }
+}
