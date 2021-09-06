@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const upload = multer();
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 const {Board} = require('./Board');
 //use WebSockets for a faster response time
 //establishing app config and middleware
