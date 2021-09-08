@@ -4,7 +4,7 @@
   "description": "This is a basic game of Connect4 made using React frontend and Express backend.",
   "main": "backend/index.js",
   "scripts": {
-    "dev":"concurrently \"cd frontend/connect4 && npm run start\" \" cd backend && node index.js\"",
+    "dev": "concurrently \"cd frontend/connect4 && npm run start\" \" cd backend && node index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +18,6 @@
   },
   "homepage": "https://github.com/biratkk/connect4#readme",
   "dependencies": {
+    "concurrently": "^6.2.1"
   }
 }
