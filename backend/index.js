@@ -3,9 +3,10 @@ const fs = require('fs');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const path = require('path');
 const upload = multer();
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 const {Board} = require('./Board');
 //use WebSockets for a faster response time
 //establishing app config and middleware
@@ -31,6 +32,26 @@ const difficulty = {
     hard:6
 }
 
+
+const getRootFolderPath = __dirname.substring(0, __dirname.length-7);
+app.use(express.static(path.join(getRootFolderPath,'frontend/connect4/build')));
+    console.log("")
+    // Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(getRootFolderPath,'frontend/connect4/build', 'index.html'));
+})
+// if(process.env.NODE_ENV === 'production'){
+//     console.log("")
+
+//     // Serve any static files
+//     app.use(express.static(path.join(getRootFolderPath,'frontend/connect4/build')));
+//     console.log("")
+//     // Handle React routing, return all requests to React app
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.join(getRootFolderPath,'frontend/connect4/build', 'index.html'));
+//     })
+// }
+
 var gameStates = [];
 
 /**
@@ -43,7 +64,7 @@ var gameStates = [];
  */
 
 app.listen(port, () => {
-    console.log("HTTP Express server listening in port ",port)
+    console.log("HTTP Express server listening in port ",port);
 });
 
 // app using express methods instead of sockets

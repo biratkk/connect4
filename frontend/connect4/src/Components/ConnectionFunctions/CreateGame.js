@@ -7,7 +7,7 @@ export async function createLocalGame(connectionID){
     let formdata = new FormData();
     formdata.append("local",true);
     formdata.append("connectionID",connectionID);
-    let data = await axios.post("http://localhost:3001/createNewGame", formdata)
+    let data = await axios.post("/createNewGame", formdata)
                     .then(res => {
                         console.log(res.data);
                         return res.data;
@@ -20,7 +20,7 @@ export async function createMinimaxGame(connectionID, difficulty){
     formdata.append("local",false);
     formdata.append("connectionID",connectionID);
     formdata.append("difficulty", difficulty);
-    let data = await axios.post("http://localhost:3001/createNewGame", formdata)
+    let data = await axios.post("/createNewGame", formdata)
                     .then(res => res.data);
     return data;
 }
