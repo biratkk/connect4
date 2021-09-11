@@ -32,13 +32,16 @@ const difficulty = {
     hard:6
 }
 
+const getRootFolderPath = () => {
+    return __dirname.substring(0, __dirname.length-7);
+}
+console.log("Current Root Path is: ", getRootFolderPath());
 
-const getRootFolderPath = __dirname.substring(0, __dirname.length-7);
-app.use(express.static(path.join(getRootFolderPath,'frontend/connect4/build')));
+app.use(express.static(path.join(getRootFolderPath(),'frontend/build')));
     console.log("")
     // Handle React routing, return all requests to React app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(getRootFolderPath,'frontend/connect4/build', 'index.html'));
+    res.sendFile(path.join(getRootFolderPath(),'frontend/build', 'index.html'));
 })
 // if(process.env.NODE_ENV === 'production'){
 //     console.log("")
