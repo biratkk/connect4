@@ -2,11 +2,13 @@
   "name": "myconnect4",
   "version": "1.0.0",
   "description": "This is a basic game of Connect4 made using React frontend and Express backend.",
-  "main": "backend/index.js",
+  "main": "backend/server.js",
   "scripts": {
-    "heroku-demo": "cd frontend/connect4 && npm run build && cd ../../backend && npm run start",
-    "frontend": "cd frontend/connect4 && npm run start",
-    "backend": "cd backend && npm run start",
+    "build-client": "cd frontend && npm run build",
+    "install-client":"cd client && npm install",
+    "heroku-postbuild":"npm run install-client && npm run build-client",
+    "client": "cd frontend && npm run start",
+    "server": "cd backend && node server.js",
     "dev": "concurrently \"cd frontend/connect4 && npm run start\" \" cd backend && node index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
