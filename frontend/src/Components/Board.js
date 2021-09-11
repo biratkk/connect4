@@ -21,11 +21,11 @@ const compUser = false;
 const localUser = true;
 export default function(props){
 
-    useEffect(() => {
-           window.addEventListener("beforeunload", function(e) {
-            deleteGame(props.connectionID);
-            })
-    }, props.connectionID);
+    // useEffect(() => {
+    //        window.addEventListener("beforeunload", function(e) {
+    //         deleteGame(props.connectionID);
+    //         })
+    // }, props.connectionID);
     
     const [styles, setStyles] = useState(INITIAL_STATE);
     const changeTurnFunction = () => {
