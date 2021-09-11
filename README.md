@@ -15,8 +15,8 @@ On the project folder, type in
 ```npm start```
 and press enter.
 
-Your application should open up on port 5000. If you'd like to go there, click [this]('http://localhost:5000/').
+Your application should open up on port 5000. If you'd like to go there, click [this](http://localhost:5000/).
 
 ## With heroku:
 
-Try the application on heroku [here]('https://connect4-project-ai.herokuapp.com/')
+Try the application on heroku [here](https://connect4-project-ai.herokuapp.com/)
