@@ -113,16 +113,32 @@ app.post("/createNewGame", (req,res) => {
     local = local === 'true' ? true : false;
     let resData;
     if(connectionID === 'null'){
-        gameStates.push({
-            connectionID: gameStates.length,
-            local:local,
-            //game array being used for current game
-            gameArr: new Board(difficulty)
-        })
-        resData = {
-            connectionID:gameStates.length-1,
-            newBoard:false
+        let emptySpace = checkForEmptyStates();
+        if(emptySpace === -1){
+            gameStates.push({
+                connectionID: gameStates.length,
+                local:local,
+                //game array being used for current game
+                gameArr: new Board(difficulty)
+            })
+            resData = {
+                connectionID:gameStates.length-1,
+                newBoard:false
+            }
         }
+        else{
+            gameStates[emptySpace] = {
+                connectionID: gameStates.length,
+                local:local,
+                //game array being used for current game
+                gameArr: new Board(difficulty)
+            };
+            resData = {
+                connectionID:emptySpace,
+                newBoard:false
+            }
+        } 
+        
     }
     /**
      * else the previous object is modified with a new Game Array
@@ -232,13 +248,22 @@ app.post("/resetGame", (req, res) => {
     gameStates[connectionID].gameArr = new Board();
     res.send();
 })
-app.post("/deletegameStates", (req, res) => {
+app.post("/deleteGame", (req, res) => {
+    let connectionID = parseInt(req.body.connectionID);
+    console.log("Deleting game with connection ID:", connectionID);
+    gameStates[connectionID] = null;
 })
 app.post("/deleteUserFromGame", (req, res) => {
 });
 
 const getFormData = (formdata) => {
 
+}
+function checkForEmptyStates(){
+    gameStates.forEach((state, ind) => {
+        if(state === null) return ind; 
+    })
+    return -1;
 }
 
 function getGameBoard(connectionID){

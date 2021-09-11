@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { redStyle , whiteStyle, yellowStyle } from './constantStyles'
 import EmptyColumn from './EmptyColumn'
 import { dropPieceOn } from './ConnectionFunctions/MakeMove';
+import deleteGame from './ConnectionFunctions/DeleteGame';
 /**
  * Turn state is as follows
  * 0 or false is for YELLOW
@@ -19,6 +20,12 @@ const INITIAL_STATE =   [[whiteStyle, whiteStyle, whiteStyle, whiteStyle, whiteS
 const compUser = false;
 const localUser = true;
 export default function(props){
+
+    useEffect(() => {
+           window.addEventListener("beforeunload", function(e) {
+            deleteGame(props.connectionID);
+            })
+    }, props.connectionID);
     
     const [styles, setStyles] = useState(INITIAL_STATE);
     const changeTurnFunction = () => {
@@ -94,7 +101,7 @@ export default function(props){
     }
     return (
         <div className = "page">
-            <div className = "board">
+            <div on className = "board">
                 {emptyColumns}
             </div>
         </div>
